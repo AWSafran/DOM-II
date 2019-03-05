@@ -11,3 +11,57 @@ const pageHeader = document.querySelector(".intro");
 pageHeader.addEventListener('click', function(){
     pageHeader.style.color = "red";
 });
+
+const firstButton = document.querySelector(".destination .btn");
+firstButton.addEventListener('dblclick',function(event){
+    firstButton.style.background = "yellow";
+    firstButton.style.color = "blue";
+    firstButton.textContent = "Don't forget Sunscreen!";
+})
+
+const container = document.querySelector(".home");
+console.log(container);
+container.addEventListener('wheel', function(event){
+    console.log("triggered scroll event listener");
+    container.style.color = "gray";
+})
+
+const secondaryHeaders = document.querySelectorAll('h2');
+console.log(secondaryHeaders);
+secondaryHeaders[1].addEventListener('mouseenter', function(event){
+    secondaryHeaders[1].textContent = "Yikes! A mouse!";
+})
+
+secondaryHeaders[1].addEventListener('mouseleave', function(event){
+    secondaryHeaders[1].textContent = "Let's Go!";
+})
+
+secondaryHeaders[2].addEventListener('mousedown', function(event){
+    secondaryHeaders[2].style.color = 'red';
+})
+
+secondaryHeaders[2].addEventListener('mouseup', function(event){
+    console.log("mousedown keydown event listener");    secondaryHeaders[2].style.color = 'black';
+})
+
+const hFours = document.querySelectorAll('h4');
+
+const allButtons = document.querySelectorAll('.btn');
+console.log(allButtons);
+allButtons[1].addEventListener('click', function(event){
+    hFours[1].innerText = "UNAVAILABLE"
+})
+
+const footer = document.querySelector('footer p');
+window.addEventListener('resize', function(event){
+    footer.style.color = "red";
+});
+
+const navItems = document.querySelectorAll(".nav-link");
+
+navItems.forEach(function(element){
+    element.addEventListener('click', function(event){
+        event.preventDefault();
+        console.log(event.defaultPrevented);
+    })
+})
