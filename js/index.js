@@ -64,15 +64,17 @@ navItems.forEach(function(element){
 })
 
 //Animation Streth Goals
+let destinationParagraphs = document.querySelectorAll('.destination p')
 let clickCounter = 0;
 allButtons[2].addEventListener('click', function(event){
     console.log(hFours[2]);
     if(clickCounter % 2 === 0){
-        TweenMax.to(hFours[2], 1, {opacity:0.2, rotation:180});
-        
+        TweenMax.to(hFours[2], 1, {opacity:0.2, rotation:180, rotationX:360});
+        TweenMax.to(destinationParagraphs[2], 1, {x: 600})
     }
     else{
-        TweenMax.to(hFours[2], 1, {opacity:1, rotation:0});
+        TweenMax.to(hFours[2], 1, {opacity:1, rotation:0, rotationX:-360});
+        TweenMax.to(destinationParagraphs[2], 1, {x: 0})
     }
     ++clickCounter;
 });
