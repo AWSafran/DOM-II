@@ -20,14 +20,12 @@ firstButton.addEventListener('dblclick',function(event){
 })
 
 const container = document.querySelector(".home");
-console.log(container);
 container.addEventListener('wheel', function(event){
     console.log("triggered scroll event listener");
     container.style.color = "gray";
 })
 
 const secondaryHeaders = document.querySelectorAll('h2');
-console.log(secondaryHeaders);
 secondaryHeaders[1].addEventListener('mouseenter', function(event){
     secondaryHeaders[1].textContent = "Yikes! A mouse!";
 })
@@ -47,7 +45,6 @@ secondaryHeaders[2].addEventListener('mouseup', function(event){
 const hFours = document.querySelectorAll('h4');
 
 const allButtons = document.querySelectorAll('.btn');
-console.log(allButtons);
 allButtons[1].addEventListener('click', function(event){
     hFours[1].innerText = "UNAVAILABLE"
 })
@@ -57,11 +54,25 @@ window.addEventListener('resize', function(event){
     footer.style.color = "red";
 });
 
+//preventDefault
 const navItems = document.querySelectorAll(".nav-link");
-
 navItems.forEach(function(element){
     element.addEventListener('click', function(event){
         event.preventDefault();
         console.log(event.defaultPrevented);
     })
 })
+
+//Animation Streth Goals
+let clickCounter = 0;
+allButtons[2].addEventListener('click', function(event){
+    console.log(hFours[2]);
+    if(clickCounter % 2 === 0){
+        TweenMax.to(hFours[2], 1, {opacity:0.2, rotation:180});
+        
+    }
+    else{
+        TweenMax.to(hFours[2], 1, {opacity:1, rotation:0});
+    }
+    ++clickCounter;
+});
